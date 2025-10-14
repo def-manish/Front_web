@@ -1,1 +1,133 @@
+body{
+background-color: whitesmoke;
+}
+
+ .a-class{
+    color: red;
+}
+th,td{
+  padding: 10px;
+  border: 1px solid #000;
+}
+footer {
+color: #999;  
+}
+p.eren.right {
+  color: #183;
+}
+p.girl#mikasa{
+  color: #456;
+}
+/*class and id work same but class come again and again but one id only one time */
+
+
+p span {
+  color: green;
+}
+p > span {
+  color: #000;
+}
+canvas{
+  border: 3px solid #e00;
+}
+p{
+  background-color:inherit;
+}
+/* Nesting*/
+.question{
+  padding: 1rem;
+  background: white;
+  
+  summary{
+    color: #555;
+    font-size: 1.5rem;
+  }
+  p{
+    color: blue;
+    line-height: 1;
+  }
+}
+/* The compiles to .button:hover, .button:active, .button.large,and .button.disabled*/
+.button {
+  background: red;
+  color: #000;
+  /*Psudo-classes*/
+  &:hover {
+    background: darkred;
+  }
+  &:active {
+    transform:scale(0.96);
+  }
+  /* Modifier classes*/
+  &.large {
+    padding :1rem 2rem;
+    font-size: 1.2rem;
+  }
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+/*Complex Nesting*/
+.nav {
+  padding: 1rem;
+  background: #333;
+  ul{
+    list-style: none;
+    li {
+      position:relative;
+      a{
+        color: #ccd6f6;
+        text-decoration: none;
+        
+        &:hover{
+          color: darkred;
+        }
+      }
+      /*Dropdown menu*/
+      &:has(.dropdown) {
+        >a::after {
+          content: '●';
+          font-size: 0.8em;
+        }
+      }
+      
+      .dropdown {
+        display: none;
+        position: absolute;
+        top: 100%;
+        background: #444;
+        
+        /*show on hover*/
+        @nest li:hover & {
+          display: block;
+        }
+      }
+    }
+  }
+}
+/*Traditional physical properties
+table{
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-left: 2px solid blue;
+  width: 300px;
+  height: 100px;
+}
+*/
+/* Modern logical properties. Uses-left to right withoutchange in css*/
+.new-way{
+  margin-inline-start: 20px;
+  margin-inline-end: 20px;
+  padding-block-start: 10px;
+  padding-block-end: 10px;
+  border-inline-start: 3px solid blue;
+  inline-size: 200px;
+  block-size: 100px;
+}
+footer{
+  inline-size: 20px;
+}
 
